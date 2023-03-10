@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //nhap so A cho phuong trinh
+         let a = prompt("Moi nhap so A:");
+         let a1 = parseFloat(a); //ep kieu nhap vao thanh kieu int
+        
+         //nhap so B cho phuong trinh
+         let b = prompt("Moi nhap so B:");
+         let b1 = parseFloat(b); //ep kieu nhap vao thanh kieu int
+
+        //nhap so C cho phuong trinh
+         let c = prompt("Moi nhap so C:");
+         let c1 = parseFloat(c); //ep kieu nhap vao thanh kieu int
+
+         //he so phuong trinh bac 2 = 0
+
+    if( a == 0)
+        {
+          if( b == 0 ) 
+            {
+               if( c == 0 )
+               { // a,b,c =0
+                    console.log("Phương trình vô số nghiệm!");
+               }
+            else // a,b = 0 ; c khac 0
+                {
+                   console.log("Phương trình vô nghiệm!");
+                }
+            }
+          else
+            { // a = 0 => x = -c / b
+                console.log("Phương trình có nghiệm duy nhất x = " + ( -c1 / b1 ));
+            }
+        }
+    else
+    {       
+        //khai bao denta
+            let denTa = b1 * b1 - 4 * a1 * c1;
+         //neu denta < 0 => PTVN
+            if( denTa < 0 )
+            {
+                console.log("Phương trình vô nghiệm");
+            }
+            // denta = 0 => PT có nghiem kep
+            else if( denTa == 0 )
+            {
+                console.log("Phương trình có nghiệm kép  x1 = x2 = " + ( -b1 / 2 * a1 ));
+            }
+            else
+            {
+                console.log("Phương trình có 2 nghiệm phân biệt: ");
+                console.log("x1 = "+((Math.sqrt(denTa))/( 2 * a1 )));
+                console.log("x2 = "+((-b1-Math.sqrt(denTa))/ 2 * a1 ));
+            }
+    }
+        
+    </script>
+</body>
+</html>
