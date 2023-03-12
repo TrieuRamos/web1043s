@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //nhap canh a cho tam giac
+        let a = prompt("Mời nhập cạnh A cho tam giác ABC:");
+        // ep kieu thanh float
+        let a1 = parseFloat(a);
+
+        //nhap canh b cho tam giac
+        let b =  prompt("Mời nhập cạnh B cho tam giác ABC:");
+        //ep kieu thanh float
+        let b1 = parseFloat(b);
+
+        // nhap canh c cho tam giac
+        let c = prompt("Mời nhập cạnh C cho tam giác ABC:");
+        //ep kieu thanh float
+        let c1 = parseFloat(c);
+
+        //kiem tra cac canh vua nhap co phai la mot tam giac hay khong
+        if (( a1 + b1 ) > c1 && ( a1 + c1 ) > b1 && ( b1 +c1 ) > a1 )
+        {
+            //kiem tra truong hop tam giac deu
+            if( a1 == b1 && a1 == c1)
+            {
+                console.log("3 cạnh vừa nhập tạo thành tam giác đều!");
+            }
+            //kiem tra truong hop tam giac can
+            else if( a1 == b1 || a1 == c1 || b1 == c1 ){
+                console.log("3 cạnh vừa nhập tạo thành tam giác cân!");
+            }
+            //kiem tra truong hop tam giac vuong
+            else if( a1 * a1 + b1 * b1 == c1 * c1 || a1 * a1 + c1 *c1 == b1 * b1 || b1 * b1 + c1 * c1 == a1 * a1 )
+            {
+                console.log("3 cạnh vừa nhập tạo thành tam giác vuông!");
+            }
+            //truong hop tam giac thuong
+            else{
+                console.log("3 cạnh vừa nhập tạo thành tam giác thường!");
+            }
+        }
+        //khong thoa man dieu kien tao thanh mot tam giac
+        else{
+            console.log("3 cạnh vừa nhập không thể tạo thành tam giác!");
+        }
+    </script>
+</body>
+</html>
