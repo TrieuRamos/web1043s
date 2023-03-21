@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Hàm kiểm tra điểm khi nhập vào
+        function KiemTraDiem(diem)
+        {
+            let check = true;
+            if(diem < 0 || diem > 10)
+            {
+                check = false;
+            }
+            return check;
+        }
+        // KIỂM TRA HỌC LỰC BẰNG SwitchCase
+        function switchCase(diemTB)
+        {
+            let hocLuc;
+            switch(true)
+            {
+                case (diemTB >= 9 && diemTB <= 10):
+                    hocLuc = "gioi";
+                    break;
+                case (diemTB >=7 && diemTB < 9):
+                    hocLuc = "kha";    
+                    break;
+                case (diemTB >= 5 && diemTB < 7):
+                    hocLuc = "trung binh";
+                    break;
+                case (diemTB >= 0 && diemTB < 5):
+                    hocLuc = "yeu";
+                    break;
+            }       
+            return hocLuc;       
+
+        }
+        // KIỂM TRA HỌC LỰC BẰNG if else
+        function ifElse(diemTB)
+        {
+            let hocLuc;
+            if ( diemTB < 5)
+            {
+                hocLuc = "Yeu";
+            }
+            else if( diemTB < 7)
+            {
+                hocLuc = "Trung Binh";
+            }
+            else if( hocLuc < 9)
+            {
+                hocLuc = "Kha";
+            }
+            else
+            {
+                hocLuc = "Gioi";
+            }
+            return hocLuc;
+        } 
+    </script>
+</head>
+
+<body>
+    <script>
+        //nhập điểm cho các môn toán, lý, hóa, sinh
+        while(true)
+        {
+           
+            //Nhập điểm Toán
+            var check;
+            //khai báo biến a1,b1,c1,d1  để lưu trữ giá trị của điểm
+            var a1,b1,c1,d1;
+            var a = null;
+            var b = c = d = a;
+            do{
+                check = true;
+                let a = prompt("Nhập điểm Toán: ");
+                a1 = parseFloat(a);
+                if(KiemTraDiem(a1) == false || a === null || a === "")
+                {
+                    alert("Điểm nhập vào không chính xác!!!");
+                    alert("Vui lòng nhập lại cho đúng ( điểm >= 0 || diem <= 10 )");
+                    check = false;
+                }
+            }
+            while(check==false);
+            
+            //Nhập điểm Lý
+            do
+            {
+                check = true;
+                let b = prompt("Nhập điểm Lý: ");
+                b1 = parseFloat(b);
+                if(KiemTraDiem(b1) == false || b === null || b === "")
+                {
+                    alert("Điểm nhập vào không chính xác!!!");
+                    alert("Vui lòng nhập lại cho đúng ( điểm >= 0 || diem <= 10 )");
+                    check = false;
+                }
+            }
+            while(check==false);
+            //Nhập điểm Hóa
+            do
+            {
+                check = true;
+                let c = prompt("Nhập điểm Hóa: ");
+                c1 = parseFloat(c);
+                if(KiemTraDiem(c1) == false || c === null || c === "")
+                {
+                    alert("Điểm nhập vào không chính xác!!!");
+                    alert("Vui lòng nhập lại cho đúng ( điểm >= 0 || diem <= 10 )");
+                    check = false;
+                }
+            }
+            while(check==false);
+           
+            //Nhập điểm Sinh
+            do
+            {
+                check = true;
+                let d = prompt("Nhập điểm Sinh: ");
+                d1 = parseFloat(d);
+                if(KiemTraDiem(d1) == false || d === null || d === "")
+                {
+                    alert("Điểm nhập vào không chính xác!!!");
+                    alert("Vui lòng nhập lại cho đúng ( điểm >= 0 || diem <= 10 )");
+                    check = false;
+                }
+            }
+            while(check==false);
+
+           // Tính điểm Trung Bình
+            let diemTB = ( a1 + b1 + c1 + d1 ) / 4;
+
+            //Xuất điểm trung bình ra màng hình console
+            document.write("Điểm Trung Bình Của Học Sinh là: "+diemTB);
+
+            // Hiển thị MeNu ra màn hình
+            alert("1.XẾP HỌC LỰC THEO SWITCH CASE");
+            alert("2.XẾP HỌC LỰC THEO IF ELSE");
+            
+            let button = prompt("Mời bạn chọn chức năng: ");
+            switch(button)
+            {
+                case "1":
+                    {
+                        console.log("hoc luc: "+(switchCase(diemTB)));
+                        process.exit();
+                        break;
+                    }
+                case "2":
+                    {
+                        console.log("hoc luc: "+(ifElse(diemTB)));
+                        process.exit();
+                        break;
+                    }
+                default:
+                    {
+                        alert("Không có chức năng tìm kiếm của bạn!!!");
+                        alert("Mời nhập lại ( 1 - 2 )");
+                        break;
+                    }
+
+            }
+        }
+    </script>
+</body>
+</html>

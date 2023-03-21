@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <table>
+        <tr>
+            <!-- tao khung chua cac so -->
+            <input id="result" type="text">
+        </tr>
+        <tr>
+            <!-- input type="button" value=""  => tao cac nut nhan , co ten theo " " -->
+                <!-- result.value la value cua result;  this.value la value cua button -->
+                    <!-- onclick: goi chuc nang khi bam vao -->
+            <td><input type="button" value="7" onclick="result.value+=this.value"></td> 
+            <td><input type="button" value="8" onclick="result.value+=this.value"></td>
+            <td><input type="button" value="9" onclick="result.value+=this.value"></td>
+            <td><input type="button" value="*" onclick="result.value+=this.value"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="4" onclick="result.value+=this.value"></td>
+            <td><input type="button" value="5" onclick="result.value+=this.value"></td>
+            <td><input type="button" value="6" onclick="result.value+=this.value"></td>
+            <td><input type="button" value="/" onclick="result.value+=this.value"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="1" onclick="result.value+=this.value"></td>
+            <td><input type="button" value="2" onclick="result.value+=this.value"></td>
+            <td><input type="button" value="3" onclick="result.value+=this.value"></td>
+            <td><input type="button" value="+" onclick="result.value+=this.value"></td>
+        </tr>
+        <tr> 
+            <td><input type="button" value="0" onclick="result.value+=this.value"></td>
+            <!-- khi bam C thi value cua result = rong ( chuoi rong ) -->
+            <td><input type="button" value="C" onclick="result.value=''"></td>
+             <!-- phuong thuc =eval -->
+            <td><input type="button" value="=" onclick="result.value=eval(result.value)"></td>
+            <td><input type="button" value="-" onclick="result.value+=this.value"></td>
+        </tr>
+        
+    </table> 
+</body>
+</html>
