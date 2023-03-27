@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    class Student {
+        // tao ham khoi tao de chua id, first_name, last_name, class_id, email,phone_number,dob
+  constructor(id, first_name, last_name, class_id, email, phone_number, dob) {
+    this.id = id;
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.class_id = class_id;
+    this.email = email;
+    this.phone_number = phone_number;
+    this.dob = new Date(dob);
+  }
+   //phương thức getFullName
+  getFullName() {
+    return this.first_name + ' ' + this.last_name;
+  }
+//tinh tuoi cua cac doi tuong
+  getAgeInYears() {
+    //khai bao hang 
+    const now = new Date();
+    let age = now.getFullYear() - this.dob.getFullYear();
+    //tính toán số tháng giữa tháng hiện tại và tháng sinh của đối tượng 
+    const monthDiff = now.getMonth() - this.dob.getMonth();
+    //kiem tra thang sinh cua doi tuong SV1 ( neu <0 || =0 &  ngay hien tai < ngay sinh cua SV1 ) thi giam SV1 i 1 tuoi
+    if (monthDiff < 0 || (monthDiff === 0 && now.getDate() < this.dob.getDate())) {
+      age--;
+    }
+    return age;
+  }
+
+  getAgeInDays() {
+    //khoi tao hang so 1 Ngay 
+    const oneDay = 1000 * 60 * 60 * 24;
+    //tao doi tuong Date 
+    const now = new Date();
+    // lay so giay hien tai - so giay ngay sinh ra = diffInMs va / cho 1 ngay ( oneDay) de tao ra ngay
+    const diffInMs = now.getTime() - this.dob.getTime();
+    return Math.floor(diffInMs / oneDay);
+  }
+}
+
+// Tạo danh sách 5 sinh viên
+const students = [
+  new Student(1, 'Trần', 'Viết Triều', 'IT18301', 'trieutvpd07435@fpt.edu.vn', '0987654321', '2004/05/20'),
+  new Student(2, 'Trần', 'Đình Gia Bảo', 'IT18302', 'baotgd@fpt.edu.vn', '0123456789', '2004/07/3'),
+  new Student(3, 'Lê', 'Văn Dũng', 'IT18301', 'dunglv@fpt.edu.vn', '0123456789', '2004/08/9'),
+  new Student(4, 'Trương', 'Văn Thọ', 'IT18303', 'thotv@fpt.edu.vn', '0987654321', '2003/2/6'),
+  new Student(5, 'Nguyễn', 'Kinh Thành', 'IT18302', 'thanhnk@fpt.edu.vn', '0123456789', '2002-03-20')
+];
+
+// Sắp xếp danh sách sinh viên theo số tuổi từ thấp đến cao
+students.sort((a, b) => a.getAgeInDays() - b.getAgeInDays());
+
+// In ra danh sách sinh viên
+console.log("DANH SÁCH CÁC SINH VIÊN: ");
+students.forEach((student) => {
+  console.log(`${student.getFullName()} - Age: ${student.getAgeInYears()} years (${student.getAgeInDays()} days)`);
+});
+
+// In ra thông tin chiều rộng và chiều cao của màn hình
+console.log(`Screen width: ${window.innerWidth}px - Screen height: ${window.innerHeight}px`);
+
+    </script>
+</body>
+</html>
