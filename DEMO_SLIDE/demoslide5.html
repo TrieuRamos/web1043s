@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         .container {
+
+            /* tach sang 2 ben; */
+            justify-content: space-between; 
+         }
+    </style>
+</head>
+<body>
+  <span id="s1" class="sss">user name</span>
+  <span id="s2" >user </span>
+  <span  class="sss"> name</span>
+
+  <script>
+let s1 = document.getElementById(s1);
+console.log(s1.innerHTML);
+s1.innerHTML = "Trieu Tran";
+console.log(s1.innerHTML);
+
+let collection1 = document.getElementsByTagName("span");
+console.log(collection1[0].innerHTML);
+
+
+let collection2 = document.getElementsByClassName("IT18301");
+console.log(collection2[1].innerHTML);
+  </script>
+</body>
+</html> 
